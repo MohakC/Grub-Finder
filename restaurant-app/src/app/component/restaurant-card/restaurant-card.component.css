@@ -1,0 +1,20 @@
+.card {
+    width: 250px;
+    max-width: 250px;
+    background-color: rgba(220, 231, 235, 0.438);
+    border: 5px white solid;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.li {
+    max-width: 200px;
+}

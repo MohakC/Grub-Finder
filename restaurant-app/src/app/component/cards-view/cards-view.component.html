@@ -1,0 +1,5 @@
+<div class="main" >
+    <div class="sub" *ngFor="let card of cards">
+        <app-restaurant-card [data]="card" [route]="route" (toFav)="addFav($event)"></app-restaurant-card>
+    </div>
+</div>

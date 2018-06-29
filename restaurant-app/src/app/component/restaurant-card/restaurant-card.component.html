@@ -1,0 +1,41 @@
+<mat-card class="card">  
+    <div fxLayout="column" fxLayoutAlign="space-between start">
+    <img mat-card-image [src]="data.thumb" height="200px" alt="Picture not available">
+    <mat-card-header>
+
+    <mat-card-title> <h3>{{data.name}}</h3></mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <p>Location: {{data.location}}</p>
+      <p>Average Cost for two: {{data.currency}}{{data.average_cost_for_two}}</p>
+      <div *ngIf="route === 'fav'">
+      <p>Reviews: </p>
+      <ul class="reviews" *ngFor="let review of data.reviews">
+        <li #li id={{review}} class="li">{{review}} 
+            <button mat-icon-button (click)="deleteReview(li.id)">
+                <mat-icon class="delete-icon">delete</mat-icon>
+            </button>
+        </li>
+      </ul>
+      <div *ngIf="showTextArea && route === 'fav'" fxLayout="row" fxLayoutAlign="start center"> 
+        <textarea #textarea></textarea>
+        <button mat-raised-button color="primary" (click)="addReview(textarea.value)">ADD</button>
+      </div>
+    </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <div *ngIf="route === 'search'">
+        <button mat-raised-button color="primary" (click)="addToFavorites()">FAVORITE</button>
+        </div>
+        <div *ngIf="route === 'fav'">
+        <button mat-raised-button color="primary" (click)="removeFromFavorites()">REMOVE</button>
+        <button mat-raised-button color="primary" (click)="showReviewBox()">ADD A REVIEW</button>
+        </div>
+    </mat-card-actions>
+    </div>
+</mat-card>
+
+  
+    

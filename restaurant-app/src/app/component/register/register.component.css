@@ -1,0 +1,23 @@
+.login {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.card {
+    width: 350px;
+    height: 600px;
+    background-color: lightblue;
+}
+
+.title {
+    font-size: 35px;
+}
+
+mat-form-field {
+    font-size: 17px;
+    width: 280px;
+}
+
+.error {
+    color: red;
+}

@@ -1,0 +1,24 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-toolbar color="primary" class="toolbar">
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+    <h1 class="app-title">Grub Finder</h1>
+    <div fxLayout="row" fxLayoutAlign="end center" >
+      <button mat-icon-button (click)="this.route.navigate(['/search'])">
+        <mat-icon class="search-icon">search</mat-icon>
+      </button>
+      <button mat-icon-button (click)="this.route.navigate(['/favorites'])">
+        <mat-icon class="favorite-icon">favorite</mat-icon>
+      </button>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon class="home-icon">home</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item><mat-icon>info</mat-icon>Profile</button>
+  <button mat-menu-item><mat-icon>settings</mat-icon>Settings</button>
+  <button mat-menu-item (click)="logOut()"><mat-icon>exit_to_app</mat-icon>Logout</button>
+</mat-menu>

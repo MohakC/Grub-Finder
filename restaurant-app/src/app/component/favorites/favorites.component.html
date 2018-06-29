@@ -1,0 +1,8 @@
+<app-toolbar></app-toolbar>
+<div class="main">
+    <div class="sub"  *ngFor="let favorite of favorites">
+        <app-restaurant-card [data]="favorite" [route]="route" (toFavDelete)="deleteFavorite($event)"
+            (toReview)="toReview($event)" (toRevDelete)="deleteReview($event)">
+        </app-restaurant-card>
+    </div>
+</div>

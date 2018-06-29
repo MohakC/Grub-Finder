@@ -1,0 +1,47 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="login">
+  <mat-card class="card">
+      <div fxLayout="column" fxLayoutAlign="center center" class="login">
+    <mat-card-header>
+      <mat-card-title class="title">Register</mat-card-title>
+    </mat-card-header>
+    <div *ngIf="invalidForm.length !== 0">
+        <h4 class="error">*{{invalidForm}}*</h4>
+    </div>
+    <mat-card-content>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div fxLayout="column" fxLayoutAlign="space-between start">
+          <mat-form-field>
+            <input matInput name="fname" #firstName placeholder="First Name" ngModel required autofocus>
+            <mat-hint align="end" *ngIf="validateAlphaChar(firstName.value)">Only alphabetic charachters allowed</mat-hint>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput name="lname" #lastName placeholder="Last Name" ngModel required>
+            <mat-hint align="end" *ngIf="validateAlphaChar(lastName.value)">Only alphabetic charachters allowed</mat-hint>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput name="username" #userName placeholder="User Name" ngModel required>
+            <mat-hint align="end" *ngIf="userName.value.length < 6 && userName.value.length !== 0">User Name is not long enough</mat-hint>
+            <mat-hint align="end" *ngIf="userName.value.length > 14">User Name is too long</mat-hint>
+            <mat-hint align="start" *ngIf="validateUserName(userName.value)">Only alpha-numeric charachters allowed</mat-hint>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput name="password" #password type="password" placeholder="Password" ngModel required>
+            <mat-hint align="end" *ngIf="password.value.length < 6 && password.value.length !== 0">Password is not long enough</mat-hint>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput name="email" #email placeholder="Email Address" ngModel required>
+            <mat-hint align="end" *ngIf="validateEmail(email.value)" >Email is invalid</mat-hint>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput name="phone" #phone placeholder="Phone Number" ngModel required>
+            <mat-hint align="end">Include Area Code</mat-hint>
+            <mat-hint align="start" *ngIf="validatePhoneNumber(phone.value)">Phone Number is invalid</mat-hint>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button type="submit" color="primary">Create User</button>
+      </form>   
+    </mat-card-content>
+    
+    </div>
+  </mat-card>
+</div>
