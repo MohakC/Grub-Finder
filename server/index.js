@@ -4,11 +4,13 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
 const path = require('path');
+const cors = require('cors');
 const app = express();
 
 const mongoConn = require('./mongoConnection');
 mongoConn();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
